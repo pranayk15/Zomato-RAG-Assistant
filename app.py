@@ -15,8 +15,26 @@ import html
 import sys
 import time
 from datetime import datetime
+import os
 from pathlib import Path
 import streamlit as st
+
+# Synchronize Streamlit Cloud secrets into os.environ
+try:
+    if hasattr(st, "secrets") and st.secrets:
+        for k, v in st.secrets.items():
+            if isinstance(v, str):
+                os.environ[k] = v
+            elif hasattr(v, "items"):
+                for sub_k, sub_v in v.items():
+                    if isinstance(sub_v, str):
+                        os.environ[sub_k] = sub_v
+        if "GROQ_API_KEY" in os.environ and "GROK_API_KEY" not in os.environ:
+            os.environ["GROK_API_KEY"] = os.environ["GROQ_API_KEY"]
+        elif "GROK_API_KEY" in os.environ and "GROQ_API_KEY" not in os.environ:
+            os.environ["GROQ_API_KEY"] = os.environ["GROK_API_KEY"]
+except Exception:
+    pass
 
 # Ensure project root is in sys.path
 BASE_DIR = Path(__file__).resolve().parent
