@@ -47,21 +47,73 @@ CHUNK_OVERLAP = int(os.getenv("CHUNK_OVERLAP", "120"))
 # Hugging Face Sentence Transformers model running locally on CPU
 EMBEDDING_MODEL_NAME = os.getenv("EMBEDDING_MODEL_NAME", "all-MiniLM-L6-v2")
 
-# -----------------------------------------------------------------------------
-# LLM Configuration (Grok / OpenAI-Compatible / Groq)
-# -----------------------------------------------------------------------------
-GROK_API_KEY = os.getenv("GROK_API_KEY", os.getenv("XAI_API_KEY", os.getenv("GROQ_API_KEY", "")))
-GROK_MODEL = os.getenv("GROK_MODEL", os.getenv("GROQ_MODEL", "grok-2-mini"))
-GROK_BASE_URL = os.getenv("GROK_BASE_URL", "")
+def get_secret(keys, default: str = "") -> str:
+    """Retrieve configuration from os.environ or st.secrets (Streamlit Cloud)."""
+    if isinstance(keys, str):
+        keys = [keys]
 
-# Auto-configure base URL and default model if not explicitly specified
-if not GROK_BASE_URL:
-    if GROK_API_KEY.startswith("gsk_") or "llama" in GROK_MODEL.lower() or "mixtral" in GROK_MODEL.lower():
-        GROK_BASE_URL = "https://api.groq.com/openai/v1"
-        if GROK_MODEL == "grok-2-mini":
-            GROK_MODEL = "groq/compound-mini"
-    else:
-        GROK_BASE_URL = "https://api.x.ai/v1"
+    # 1. Environment variables
+    for k in keys:
+        val = os.getenv(k)
+        if val and val.strip() and "your_api_key_here" not in val:
+            return val.strip()
+
+    # 2. Streamlit Cloud Secrets (handles flat keys, case-insensitive, and nested sections)
+    try:
+        import streamlit as st
+        if hasattr(st, "secrets") and st.secrets:
+            # Direct match
+            for k in keys:
+                if k in st.secrets and isinstance(st.secrets[k], str) and st.secrets[k].strip():
+                    return st.secrets[k].strip()
+
+            # Case-insensitive match on top-level
+            for sec_k, sec_v in st.secrets.items():
+                for k in keys:
+                    if sec_k.lower() == k.lower() and isinstance(sec_v, str) and sec_v.strip():
+                        return sec_v.strip()
+
+            # Search nested sections like [general] or [secrets]
+            for sec_k, sec_v in st.secrets.items():
+                if hasattr(sec_v, "items"):
+                    for k in keys:
+                        if k in sec_v and isinstance(sec_v[k], str) and sec_v[k].strip():
+                            return sec_v[k].strip()
+                        for inner_k, inner_v in sec_v.items():
+                            if inner_k.lower() == k.lower() and isinstance(inner_v, str) and inner_v.strip():
+                                return inner_v.strip()
+    except Exception:
+        pass
+
+    return default
+
+
+def get_grok_api_key() -> str:
+    key = get_secret(["GROK_API_KEY", "GROQ_API_KEY", "XAI_API_KEY", "OPENAI_API_KEY"])
+    if key:
+        os.environ.setdefault("GROK_API_KEY", key)
+        os.environ.setdefault("GROQ_API_KEY", key)
+    return key
+
+
+def get_grok_model() -> str:
+    return get_secret(["GROK_MODEL", "GROQ_MODEL"], "groq/compound-mini")
+
+
+def get_grok_base_url() -> str:
+    explicit = get_secret(["GROK_BASE_URL", "GROQ_BASE_URL"])
+    if explicit:
+        return explicit
+    key = get_grok_api_key()
+    model = get_grok_model()
+    if key.startswith("gsk_") or "llama" in model.lower() or "mixtral" in model.lower() or "compound" in model.lower():
+        return "https://api.groq.com/openai/v1"
+    return "https://api.x.ai/v1"
+
+
+GROK_API_KEY = get_grok_api_key()
+GROK_MODEL = get_grok_model()
+GROK_BASE_URL = get_grok_base_url()
 
 # -----------------------------------------------------------------------------
 # Retrieval & Advanced RAG Configuration
