@@ -57,11 +57,15 @@ def load_vectorstore(
         return _CACHED_INDEX, _CACHED_METADATA
 
     if not index_path.exists() or not metadata_path.exists():
-        raise FileNotFoundError(
-            f"FAISS index or metadata not found in '{index_path.parent}'.\n"
-            "Please run document ingestion first using:\n"
-            "    python src/ingest.py"
-        )
+        try:
+            from src.ingest import run_ingestion_pipeline
+            run_ingestion_pipeline()
+        except Exception as e:
+            raise FileNotFoundError(
+                f"FAISS index or metadata not found in '{index_path.parent}'.\n"
+                f"Auto-ingestion attempted but failed: {e}\n"
+                "Please run: python src/ingest.py"
+            )
 
     try:
         import faiss
@@ -430,26 +434,29 @@ def build_prompt(query: str, context: str, chat_history: Optional[List[Dict[str,
 def get_llm_client():
     """Instantiate an OpenAI-compatible client configured for Grok or Groq."""
     from openai import OpenAI
-    from src.config import GROK_API_KEY, GROK_BASE_URL
+    from src.config import get_grok_api_key, get_grok_base_url
 
-    if not GROK_API_KEY or not GROK_API_KEY.strip() or "your_api_key_here" in GROK_API_KEY:
+    api_key = get_grok_api_key()
+    if not api_key:
         raise ValueError(
-            "Grok API key is missing. Please set GROK_API_KEY in your .env file."
+            "Grok API key is missing. Please set GROK_API_KEY (or GROQ_API_KEY) in your Streamlit Cloud Secrets or .env file."
         )
 
+    base_url = get_grok_base_url()
     return OpenAI(
-        api_key=GROK_API_KEY.strip(),
-        base_url=GROK_BASE_URL
+        api_key=api_key,
+        base_url=base_url
     )
 
 
 def call_llm(prompt: str) -> str:
     """Send prompt to Grok LLM and return generated text."""
-    from src.config import GROK_MODEL
+    from src.config import get_grok_model
 
     client = get_llm_client()
+    model = get_grok_model()
     response = client.chat.completions.create(
-        model=GROK_MODEL,
+        model=model,
         messages=[
             {"role": "system", "content": "You are a helpful, professional Zomato customer support assistant."},
             {"role": "user", "content": prompt}
@@ -464,11 +471,12 @@ def call_llm(prompt: str) -> str:
 
 def stream_llm(prompt: str) -> Generator[str, None, None]:
     """Yield tokens from Grok LLM in real time as they are generated."""
-    from src.config import GROK_MODEL
+    from src.config import get_grok_model
 
     client = get_llm_client()
+    model = get_grok_model()
     stream = client.chat.completions.create(
-        model=GROK_MODEL,
+        model=model,
         messages=[
             {"role": "system", "content": "You are a helpful, professional Zomato customer support assistant."},
             {"role": "user", "content": prompt}
