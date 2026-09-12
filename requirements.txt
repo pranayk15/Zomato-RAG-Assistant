@@ -1,0 +1,17 @@
+# Core Web UI
+streamlit>=1.35.0
+
+# Vector Database & Embeddings
+faiss-cpu>=1.8.0
+sentence-transformers>=3.0.0
+
+# LLM API (Grok / OpenAI-compatible / Groq)
+openai>=1.50.0
+groq>=0.11.0
+
+# Environment & Utilities
+python-dotenv>=1.0.1
+pydantic>=2.7.0
+numpy>=1.26.0
+rank-bm25>=0.2.2
+
