@@ -526,6 +526,7 @@ It can be presented as a portfolio project for:
 - Machine Learning Engineer
 
 ## 👨‍💻 Author
+Pranay Kale
 
 Built as an educational and portfolio-focused project to explore practical Retrieval-Augmented Generation systems and customer-support automation.
 
