@@ -1,0 +1,100 @@
+[
+  {
+    "document_id": "SRC_001",
+    "title": "Zomato Cancellation and Refund Policy",
+    "category": "cancellation_refunds",
+    "source_type": "official",
+    "source_name": "Zomato Legal & Policies",
+    "source_url": "https://www.zomato.com/policies/cancellation",
+    "content": "As a general rule, a buyer may request cancellation of an order through the Zomato application. However, cancellation eligibility depends strictly on the order stage. If the restaurant partner has already accepted the order or started preparing the food, or if a delivery partner has been assigned and dispatched, a cancellation fee of up to 100% of the order value may apply to compensate the merchant and delivery partner. If the merchant rejects the order, or if the order is cancelled by Zomato due to unavailability of delivery partners or restaurant closure, the customer is entitled to a 100% full refund.\n\nRefund Processing and Timelines:\n1. UPI and Net Banking payments: Refunds are credited back to the original bank account within 3 to 5 business days.\n2. Credit Card and Debit Card payments: Refunds take approximately 5 to 7 business days depending on the issuing bank.\n3. Zomato Credits or Wallet: Instant refund credited within 2 hours.\n\nIssues with Delivered Orders:\nIf the delivered food is damaged, spoiled, completely incorrect, or has missing items, customers must report the issue through the 'Help' section within 2 hours of delivery. Clear photographs showing the damaged or incorrect items and the original packaging label are required for verification before a replacement or refund is approved.",
+    "metadata": {
+      "last_checked": "2026-09-12",
+      "version": "2.4",
+      "applicable_region": "India"
+    }
+  },
+  {
+    "document_id": "SRC_002",
+    "title": "Zomato Ordering and Delivery Terms",
+    "category": "orders_delivery",
+    "source_type": "official",
+    "source_name": "Zomato Terms of Service",
+    "source_url": "https://www.zomato.com/policies/terms-of-service",
+    "content": "Placing Orders and Delivery Address:\nOnce an order is placed and confirmed by the customer, the delivery address cannot be modified through the application. Customers must ensure their pin code, building details, and contact number are accurate before checking out. If a change of address is critical, the customer must contact support immediately; however, if the new location falls outside the restaurant's operational delivery radius, the order may be cancelled with applicable cancellation charges.\n\nUnreachable Customer Policy:\nUpon reaching the specified delivery address, delivery partners are instructed to attempt calling the customer. If the customer does not answer the call or cannot be located within 10 minutes of arrival, the delivery partner is marked released, and the order is treated as completed or cancelled due to customer unavailability. In such circumstances, no refund shall be issued.\n\nContact-Free Delivery:\nCustomers can select 'Leave at my door' or 'Contact-free delivery' at checkout. In this case, delivery partners will place the package at the doorstep, gate, or reception and take a confirmation photo. Zomato is not liable for package theft or spoilage occurring after successful drop-off.",
+    "metadata": {
+      "last_checked": "2026-09-12",
+      "version": "3.1",
+      "applicable_region": "Global"
+    }
+  },
+  {
+    "document_id": "SRC_003",
+    "title": "Zomato Gold Membership Terms and Benefits",
+    "category": "membership_gold",
+    "source_type": "official",
+    "source_name": "Zomato Gold Help Center",
+    "source_url": "https://www.zomato.com/gold",
+    "content": "Zomato Gold is a paid subscription program offering exclusive dining-out and food delivery perks:\n\nFood Delivery Benefits:\n1. Free Delivery: Unlimited free delivery on orders from participating restaurants within an eligible radius (typically 7 to 10 kilometers) on orders meeting the minimum basket value of ₹199.\n2. Up to 30% extra discounts on top of regular promotional discounts at select Gold partner restaurants.\n3. VIP Priority: Gold orders receive priority dispatch during peak traffic and bad weather hours.\n\nDining Out Benefits:\n1. Up to 40% flat discount on the total bill at participating Gold partner restaurants when payment is made using the Zomato Pay feature.\n2. One Gold membership discount can be redeemed per table per visit unless specified otherwise by the dining establishment.\n\nSubscription Rules & Cancellation:\nGold membership is non-transferable and linked strictly to the registered phone number and device. Users can turn off auto-renewal at any point in their account settings. However, once purchased, the current active membership fee is non-refundable regardless of usage.",
+    "metadata": {
+      "last_checked": "2026-09-12",
+      "version": "1.9",
+      "applicable_region": "India, UAE"
+    }
+  },
+  {
+    "document_id": "SRC_004",
+    "title": "Zomato Payment Methods, Failed Transactions, and Invoicing",
+    "category": "payments_billing",
+    "source_type": "official",
+    "source_name": "Zomato Payment Policy",
+    "source_url": "https://www.zomato.com/policies/payments",
+    "content": "Accepted Payment Methods:\nZomato supports multiple secure digital payment methods, including:\n- UPI (Google Pay, PhonePe, Paytm, BHIM)\n- Credit Cards and Debit Cards (Visa, MasterCard, RuPay, American Express)\n- Net Banking with major banks\n- Digital Wallets (Paytm, Mobikwik)\n- Zomato Credits / Gift Cards\n- Cash on Delivery (COD) subject to merchant acceptance and order value limits.\n\nFailed Payments and Debited Accounts:\nIf money has been debited from your bank account or card but the Zomato application shows 'Order Failed' or 'Payment Pending', the amount is held by the banking gateway. It will be automatically reversed to your original payment source without human intervention:\n- UPI debits: Reversal usually completes within 24 to 48 hours.\n- Card & Net banking: Reversal takes 3 to 5 business days according to standard banking clearing cycles.\n\nInvoicing and Taxes:\nAll prices shown are inclusive of applicable Goods and Services Tax (GST), restaurant packaging charges, and delivery/platform fees. An electronic tax invoice is generated upon delivery and can be downloaded directly from the 'Order History' tab.",
+    "metadata": {
+      "last_checked": "2026-09-12",
+      "version": "2.2",
+      "applicable_region": "India"
+    }
+  },
+  {
+    "document_id": "SRC_005",
+    "title": "Zomato Food Safety, Hygiene, and Dietary Standards",
+    "category": "food_quality_safety",
+    "source_type": "official",
+    "source_name": "Zomato Merchant Guidelines",
+    "source_url": "https://www.zomato.com/policies/food-safety",
+    "content": "Merchant Hygiene and FSSAI Compliance:\nAll restaurant partners listed on Zomato in India must hold a valid Food Safety and Standards Authority of India (FSSAI) license. Restaurants are required to prominently display their FSSAI registration number on their digital menu.\n\nDietary Preferences and Allergens:\nDishes are tagged by restaurants as Veg (Green dot), Non-Veg (Red/Brown dot), Vegan, or Egg-containing. While Zomato mandates clear labeling, the physical preparation, cross-contamination prevention, and allergen control remain the sole responsibility of the merchant establishment. Customers with severe food allergies are strongly advised to call the restaurant directly via the phone icon on the menu before placing an order.\n\nFood Quality Complaints:\nIf a customer receives stale, contaminated, or improperly cooked food, Zomato Customer Support initiates an inquiry with the merchant. Photographic or video evidence of the dish must be submitted via the in-app chat within 2 hours of delivery for resolution.",
+    "metadata": {
+      "last_checked": "2026-09-12",
+      "version": "1.7",
+      "applicable_region": "India"
+    }
+  },
+  {
+    "document_id": "SRC_006",
+    "title": "Zomato Customer Support Channels and Grievance Redressal",
+    "category": "customer_support",
+    "source_type": "official",
+    "source_name": "Zomato Help Center",
+    "source_url": "https://www.zomato.com/help",
+    "content": "Customer Support Channels:\nZomato provides 24/7 in-app customer support for all active and past orders:\n1. In-App Chat: Tap the 'Help' or 'Chat with Us' button inside any active order or from 'Order History'. This connects directly with automated assistance or a live support executive.\n2. Email Support: General inquiries or feedback can be emailed to order@zomato.com.\n\nWhat Customer Support Can and Cannot Do:\n- Customer support CAN: Check order status, contact the delivery partner or restaurant on your behalf, process refunds for missing/damaged items, and issue platform credits.\n- Customer support CANNOT: Modify an order after the kitchen has started food preparation, alter the recipe or taste preferences mid-delivery, or speed up transit in heavy traffic or adverse weather.\n\nGrievance Redressal:\nIn accordance with Consumer Protection (E-Commerce) Rules, if an issue remains unresolved after customer support interaction, users may escalate their complaint to the designated Grievance Officer via grievance@zomato.com. Inquiries are acknowledged within 48 hours and typically resolved within 30 days.",
+    "metadata": {
+      "last_checked": "2026-09-12",
+      "version": "3.0",
+      "applicable_region": "India"
+    }
+  },
+  {
+    "document_id": "SRC_007",
+    "title": "Zomato Account Security, Ratings, and Platform Guidelines",
+    "category": "account_terms",
+    "source_type": "official",
+    "source_name": "Zomato Platform Rules",
+    "source_url": "https://www.zomato.com/terms",
+    "content": "Account Creation and One-User Policy:\nUsers must register with a valid phone number and email address verified via One-Time Password (OTP). Creating multiple duplicate accounts to exploit introductory coupon codes or referral bonuses is strictly prohibited and results in immediate account suspension and cancellation of associated orders without refund.\n\nUser Ratings and Reviews:\nCustomers can rate their order on a 1-to-5 star scale and publish written reviews. Reviews must reflect genuine personal dining experiences. Content containing abusive, defamatory, discriminatory, or promotional language will be removed by automated content moderation filters.\n\nSecurity Recommendations:\nZomato staff will never ask for your account password, SMS OTP, or UPI PIN under any circumstances. Never share payment authentication codes with anyone claiming to represent Zomato customer support.",
+    "metadata": {
+      "last_checked": "2026-09-12",
+      "version": "2.1",
+      "applicable_region": "Global"
+    }
+  }
+]

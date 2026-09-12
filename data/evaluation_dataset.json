@@ -1,0 +1,122 @@
+[
+  {
+    "eval_id": "EVAL_001",
+    "question": "How long does a refund take to process for UPI payments?",
+    "ground_truth": "Refunds for UPI and Net Banking payments are credited back to the original bank account within 3 to 5 business days.",
+    "relevant_document_id": "SRC_001",
+    "category": "cancellation_refunds",
+    "question_type": "factual"
+  },
+  {
+    "eval_id": "EVAL_002",
+    "question": "Can I cancel my order once the kitchen starts cooking?",
+    "ground_truth": "If the restaurant has already started preparing the food or a delivery partner is dispatched, a cancellation fee of up to 100% of the order value may apply.",
+    "relevant_document_id": "SRC_001",
+    "category": "cancellation_refunds",
+    "question_type": "policy_clause"
+  },
+  {
+    "eval_id": "EVAL_003",
+    "question": "What is the reporting time limit and requirement if my food arrives damaged or missing?",
+    "ground_truth": "Issues with damaged, spoiled, or missing food must be reported through the Help section within 2 hours of delivery with clear photographs of the items and packaging.",
+    "relevant_document_id": "SRC_001",
+    "category": "cancellation_refunds",
+    "question_type": "factual"
+  },
+  {
+    "eval_id": "EVAL_004",
+    "question": "Can I modify my delivery address after placing an order?",
+    "ground_truth": "Delivery addresses cannot be modified through the app once placed. Contacting support is required, but if the new address is outside the operational radius, the order may be cancelled with applicable charges.",
+    "relevant_document_id": "SRC_002",
+    "category": "orders_delivery",
+    "question_type": "policy_clause"
+  },
+  {
+    "eval_id": "EVAL_005",
+    "question": "What happens if a customer does not answer the delivery partner's phone call upon arrival?",
+    "ground_truth": "If the customer does not answer or cannot be located within 10 minutes of arrival, the order is cancelled due to customer unavailability with no refund.",
+    "relevant_document_id": "SRC_002",
+    "category": "orders_delivery",
+    "question_type": "factual"
+  },
+  {
+    "eval_id": "EVAL_006",
+    "question": "What are the food delivery perks of Zomato Gold membership?",
+    "ground_truth": "Zomato Gold offers unlimited free delivery on orders above ₹199 from eligible restaurants within 7 to 10 km, up to 30% extra discounts, and VIP priority dispatch during peak hours.",
+    "relevant_document_id": "SRC_003",
+    "category": "membership_gold",
+    "question_type": "multi_clause"
+  },
+  {
+    "eval_id": "EVAL_007",
+    "question": "Can I get a refund on my active Zomato Gold membership subscription fee?",
+    "ground_truth": "No, users can turn off auto-renewal anytime in account settings, but the current active membership fee is non-refundable regardless of usage.",
+    "relevant_document_id": "SRC_003",
+    "category": "membership_gold",
+    "question_type": "policy_clause"
+  },
+  {
+    "eval_id": "EVAL_008",
+    "question": "What happens if money was deducted from my bank but the order failed on Zomato?",
+    "ground_truth": "Deductions from failed orders are held by the bank gateway and automatically reversed to the original source: 24 to 48 hours for UPI, and 3 to 5 business days for cards and Net Banking.",
+    "relevant_document_id": "SRC_004",
+    "category": "payments_billing",
+    "question_type": "factual"
+  },
+  {
+    "eval_id": "EVAL_009",
+    "question": "Where can I download my official GST tax invoice for a completed food order?",
+    "ground_truth": "An electronic tax invoice is generated upon delivery and can be downloaded directly from the Order History tab.",
+    "relevant_document_id": "SRC_004",
+    "category": "payments_billing",
+    "question_type": "factual"
+  },
+  {
+    "eval_id": "EVAL_010",
+    "question": "Are restaurant partners on Zomato required to hold an FSSAI food safety license?",
+    "ground_truth": "Yes, all Indian restaurant partners listed on Zomato must hold a valid FSSAI license and prominently display their registration number on their digital menu.",
+    "relevant_document_id": "SRC_005",
+    "category": "food_quality_safety",
+    "question_type": "factual"
+  },
+  {
+    "eval_id": "EVAL_011",
+    "question": "Can customer support modify my dish recipe or speed up the driver during heavy traffic?",
+    "ground_truth": "No, customer support cannot modify food once cooking starts, alter recipes, or accelerate delivery transit during traffic or adverse weather.",
+    "relevant_document_id": "SRC_006",
+    "category": "customer_support",
+    "question_type": "policy_clause"
+  },
+  {
+    "eval_id": "EVAL_012",
+    "question": "How can I escalate an unresolved complaint to Zomato's Grievance Officer?",
+    "ground_truth": "Complaints can be escalated to the designated Grievance Officer at grievance@zomato.com, which acknowledges queries within 48 hours and resolves them within 30 days.",
+    "relevant_document_id": "SRC_006",
+    "category": "customer_support",
+    "question_type": "factual"
+  },
+  {
+    "eval_id": "EVAL_013",
+    "question": "Is a customer allowed to create multiple Zomato accounts to reuse first-order discounts?",
+    "ground_truth": "No, creating duplicate accounts to exploit introductory discounts violates platform policy and results in immediate account suspension and cancellation without refund.",
+    "relevant_document_id": "SRC_007",
+    "category": "account_terms",
+    "question_type": "policy_clause"
+  },
+  {
+    "eval_id": "EVAL_014",
+    "question": "What is the authentic recipe for cooking traditional chicken biryani at home?",
+    "ground_truth": "I don't have enough information about that in my available Zomato knowledge base. I can only assist with Zomato policies, orders, refunds, Gold membership, and platform terms.",
+    "relevant_document_id": null,
+    "category": "out_of_scope",
+    "question_type": "out_of_scope_rejection"
+  },
+  {
+    "eval_id": "EVAL_015",
+    "question": "What is the weather forecast for New Delhi this coming weekend?",
+    "ground_truth": "I don't have enough information about that in my available Zomato knowledge base. I can only assist with Zomato policies, orders, refunds, Gold membership, and platform terms.",
+    "relevant_document_id": null,
+    "category": "out_of_scope",
+    "question_type": "out_of_scope_rejection"
+  }
+]
