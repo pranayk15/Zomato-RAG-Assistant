@@ -498,33 +498,6 @@ The assistant should politely explain that these questions are outside the avail
 - Introduce automated regression tests for retrieval and prompt changes.
 - Add monitoring for latency, token usage, errors, and retrieval failures.
 
-## 🎯 Portfolio Value
-
-This project demonstrates practical skills in:
-
-- Retrieval-Augmented Generation
-- Data cleaning and document chunking
-- Local embedding generation
-- Vector indexing with FAISS
-- Sparse retrieval using BM25
-- Reciprocal Rank Fusion
-- Cross-encoder re-ranking
-- Prompt engineering
-- LLM API integration
-- Streaming responses
-- Semantic caching
-- Source attribution
-- RAG evaluation
-- Streamlit application development
-
-It can be presented as a portfolio project for:
-
-- Generative AI Engineer
-- AI/ML Engineer
-- Applied NLP Engineer
-- Data Scientist
-- Machine Learning Engineer
-
 ## 👨‍💻 Author
 Pranay Kale
 
