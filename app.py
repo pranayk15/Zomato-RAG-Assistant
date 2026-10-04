@@ -96,38 +96,24 @@ if "top_k_val" not in st.session_state:
 if "pending_query" not in st.session_state:
     st.session_state.pending_query = None
 
-if "messages" not in st.session_state or not st.session_state.messages:
-    st.session_state.messages = [
-        {
-            "role": "user",
-            "content": "Can I cancel my order?",
-            "time": "10:24 AM"
-        },
+def get_initial_messages() -> list:
+    """Return initial welcome message for a fresh session."""
+    return [
         {
             "role": "assistant",
-            "content": "Yes, you can cancel your order, but it depends on the current order status and the applicable cancellation policy. Please check the cancellation option in the Zomato app. Any cancellation charges or refund eligibility will be based on the policy.",
-            "time": "10:24 AM",
-            "sources": [
-                {"title": "Zomato Cancellation and Refund Policy", "source_url": "https://www.zomato.com/policies/cancellation"},
-                {"title": "Zomato Terms of Service", "source_url": "https://www.zomato.com/policies/terms-of-service"},
-                {"title": "Help Center - Cancel an Order", "source_url": "https://www.zomato.com/contact"}
-            ]
-        },
-        {
-            "role": "user",
-            "content": "How long does the refund take?",
-            "time": "10:26 AM"
-        },
-        {
-            "role": "assistant",
-            "content": "Refunds are usually processed within a few business days, depending on your payment method and the applicable policy. You can check the exact timeline in the Zomato app under your order details.",
-            "time": "10:26 AM",
-            "sources": [
-                {"title": "Refund Policy - Zomato", "source_url": "https://www.zomato.com/policies/cancellation"},
-                {"title": "Payments and Refunds - Help Center", "source_url": "https://www.zomato.com/policies/payments"}
-            ]
+            "content": (
+                "Hello! 👋 Welcome to Zomato Support.\n\n"
+                "I am your AI Assistant, here to help you with your orders, cancellations, "
+                "refund timelines, Zomato Gold benefits, payment methods, and food safety policies.\n\n"
+                "How can I help you today? Feel free to ask any question below or pick a topic from above!"
+            ),
+            "time": datetime.now().strftime("%I:%M %p"),
+            "sources": []
         }
     ]
+
+if "messages" not in st.session_state:
+    st.session_state.messages = get_initial_messages()
 
 # -----------------------------------------------------------------------------
 # Dynamic Theme Variables (Light vs Dark Mode)
@@ -1080,7 +1066,7 @@ elif nav_selection == "⚙️ Settings":
     sc1, sc2 = st.columns(2)
     with sc1:
         if st.button("🗑️ Reset All Chat History", use_container_width=True):
-            st.session_state.messages = []
+            st.session_state.messages = get_initial_messages()
             st.session_state.pending_query = None
             st.rerun()
 
@@ -1117,6 +1103,6 @@ elif nav_selection == "ℹ️ About":
     2. **Hybrid Search**: Combines dense semantic vector similarity (`all-MiniLM-L6-v2` via FAISS CPU) and sparse keyword retrieval (`BM25Okapi`) using **Reciprocal Rank Fusion (RRF)**.
     3. **Cross-Encoder Re-Ranking**: Deep cross-attention reranking via `ms-marco-MiniLM-L-6-v2` to prioritize high-precision passages.
     4. **Semantic Caching**: Cosine similarity caching ($\ge 0.93$) for $<10\text{ms}$ instant repeat answers with zero API consumption.
-    5. **Large Language Model**: Groq Free Tier (`groq/compound-mini`) for real-time word-by-word streaming generation.
+    5. **Large Language Model**: Groq Free Tier (`qwen/qwen3.8-27b`) for real-time word-by-word streaming generation.
     6. **Evaluation**: Native automated test suite measuring 100% Retrieval Hit Rate, 0.98 Faithfulness, and 0.96 Relevancy.
     """)
