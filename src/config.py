@@ -97,7 +97,11 @@ def get_grok_api_key() -> str:
 
 
 def get_grok_model() -> str:
-    return get_secret(["GROK_MODEL", "GROQ_MODEL"], "groq/compound-mini")
+    raw_model = get_secret(["GROK_MODEL", "GROQ_MODEL"], "qwen/qwen3.8-27b")
+    # Gracefully map nonexistent or legacy model identifiers to a valid active Groq model
+    if raw_model in ("groq/compound-mini", "compound-mini", ""):
+        return "qwen/qwen3.8-27b"
+    return raw_model
 
 
 def get_grok_base_url() -> str:
@@ -106,7 +110,7 @@ def get_grok_base_url() -> str:
         return explicit
     key = get_grok_api_key()
     model = get_grok_model()
-    if key.startswith("gsk_") or "llama" in model.lower() or "mixtral" in model.lower() or "compound" in model.lower():
+    if key.startswith("gsk_") or any(m in model.lower() for m in ["llama", "mixtral", "compound", "qwen", "gpt-oss"]):
         return "https://api.groq.com/openai/v1"
     return "https://api.x.ai/v1"
 
